@@ -2,7 +2,7 @@
  * @Author: puck.solo 
  * @Date: 2017-10-24 15:34:04 
  * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-24 16:23:16
+ * @Last Modified time: 2017-10-24 16:25:40
  */
 /*
  * @Author: puck.solo 
@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-console.log(config.sql);
+// console.log(config.sql);
 app.use((req, res, next) => {
     req.db = Knex({
         client: 'mysql',
