@@ -1,0 +1,16 @@
+{
+  "name": "node-freeradius-api",
+  "version": "1.0.0",
+  "description": "Freeradius API",
+  "main": "entry.js",
+  "repository": "https://github.com/devilhanzo/node-freeradius-api.git",
+  "author": "devilhanzo <skulchai.ch@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.13.0"
+  }
+}
