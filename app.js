@@ -2,7 +2,7 @@
  * @Author: puck.solo 
  * @Date: 2017-10-24 15:34:04 
  * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-24 16:25:40
+ * @Last Modified time: 2017-10-24 16:49:01
  */
 /*
  * @Author: puck.solo 
@@ -23,6 +23,7 @@ const config = require('./config.js');
 
 const indexRoute = require('./routes/index');
 const radgroupreplyRoute = require('./routes/radgroupreply');
+const radcheckRoute = require('./routes/radcheck');
 const app = express();
 
 // view engine setup
@@ -57,6 +58,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRoute);
+app.use('/radcheck', radcheckRoute);
 app.use('/radgroupreply', radgroupreplyRoute);
 
 // error handlers
