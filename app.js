@@ -1,15 +1,10 @@
 /*
  * @Author: puck.solo 
- * @Date: 2017-10-24 15:34:04 
- * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-25 13:12:07
+ * @Date: 2017-10-25 13:48:37 
+ * @Last Modified by:   puck.solo 
+ * @Last Modified time: 2017-10-25 13:48:37 
  */
-/*
- * @Author: puck.solo 
- * @Date: 2017-10-24 13:24:26 
- * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-24 15:25:21
- */
+
 const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
