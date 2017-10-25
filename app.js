@@ -2,7 +2,7 @@
  * @Author: puck.solo 
  * @Date: 2017-10-24 15:34:04 
  * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-24 16:49:01
+ * @Last Modified time: 2017-10-25 09:48:52
  */
 /*
  * @Author: puck.solo 
@@ -17,18 +17,20 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const Knex = require('knex');
-require('dotenv').config();
+require('dotenv').config(); //TODO use system environment
 const config = require('./config.js');
 
 
 const indexRoute = require('./routes/index');
 const radgroupreplyRoute = require('./routes/radgroupreply');
 const radcheckRoute = require('./routes/radcheck');
+const radusergroupRoute = require('./routes/radusergroup');
+const employeeRoute = require('./routes/employee');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,12 +56,29 @@ app.use((req, res, next) => {
         debug: true,
         acquireConnectionTimeout: 10000
     });
+    req.db2 = Knex({
+        client: 'mysql',
+        connection: config.sql2,
+        pool: {
+            min: 0,
+            max: 7,
+            afterCreate: (conn, done) => {
+                conn.query('SET NAMES utf8', (err) => {
+                    done(err, conn);
+                });
+            }
+        },
+        debug: true,
+        acquireConnectionTimeout: 10000
+    });
     next();
 });
 
 app.use('/', indexRoute);
 app.use('/radcheck', radcheckRoute);
 app.use('/radgroupreply', radgroupreplyRoute);
+app.use('/radusergroup', radusergroupRoute);
+app.use('/employee', employeeRoute);
 
 // error handlers
 

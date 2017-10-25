@@ -2,14 +2,14 @@
  * @Author: puck.solo 
  * @Date: 2017-10-24 15:33:48 
  * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-25 09:44:57
+ * @Last Modified time: 2017-10-25 09:45:32
  */
 var express = require('express');
 var router = express.Router();
-const radcheck = require('../models/radcheck');
-const model = new radcheck.RadCheckModel();
+const employee = require('../models/employee');
+const model = new employee.EmployeeModel();
 router.get('/', (req, res, next) => {
-    let db = req.db;
+    let db = req.db2;
     model.list(db)
         .then((results) => {
         res.send({ ok: true, rows: results });
@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 });
 router.post('/', (req, res, next) => {
     let datas = req.body.data;
-    let db = req.db;
+    let db = req.db2;
     model.save(db, datas)
         .then((results) => {
         res.send({ ok: true });
@@ -35,7 +35,7 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
     let id = req.params.id;
     let datas = req.body.data;
-    let db = req.db;
+    let db = req.db2;
     if (id) {
         model.update(db, id, datas)
             .then((results) => {
@@ -54,7 +54,7 @@ router.put('/:id', (req, res, next) => {
 });
 router.get('/detail/:id', (req, res, next) => {
     let id = req.params.id;
-    let db = req.db;
+    let db = req.db2;
     model.detail(db, id)
         .then((results) => {
         res.send({ ok: true, detail: results[0] });
@@ -68,7 +68,7 @@ router.get('/detail/:id', (req, res, next) => {
 });
 router.delete('/:id', (req, res, next) => {
     let id = req.params.id;
-    let db = req.db;
+    let db = req.db2;
     model.remove(db, id)
         .then((results) => {
         res.send({ ok: true });

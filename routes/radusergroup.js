@@ -2,12 +2,12 @@
  * @Author: puck.solo 
  * @Date: 2017-10-24 15:33:48 
  * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-25 09:44:57
+ * @Last Modified time: 2017-10-25 09:30:32
  */
 var express = require('express');
 var router = express.Router();
-const radcheck = require('../models/radcheck');
-const model = new radcheck.RadCheckModel();
+const radusergroup = require('../models/radusergroup');
+const model = new radusergroup.RadUserGroupModel();
 router.get('/', (req, res, next) => {
     let db = req.db;
     model.list(db)
