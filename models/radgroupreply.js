@@ -2,7 +2,7 @@
  * @Author: puck.solo 
  * @Date: 2017-10-24 15:39:10 
  * @Last Modified by: puck.solo
- * @Last Modified time: 2017-10-24 16:03:52
+ * @Last Modified time: 2017-10-25 11:58:06
  */
 class RadGroupReplyModel {
     constructor() {

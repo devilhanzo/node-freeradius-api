@@ -21,18 +21,5 @@ module.exports = {
     database: process.env.SQL2_DATABASE,
     multipleStatements: true
   },
-  // mongo: {
-  //   // uri: 'mongodb://user:.password@host:port/dbname'
-  //   uri: `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DBNAME}`,
-  // },
-  // mongo2: {
-  //   // uri: 'mongodb://user:.password@host:port/dbname'
-  //   uri: `mongodb://${process.env.MONGO2_USER}:${process.env.MONGO2_PASSWD}@${process.env.MONGO2_HOST}:${process.env.MONGO2_PORT}/${process.env.MONGO2_DBNAME}`,
-  // },
-  // seedDB: false,
-  // seedMongoDB: false,
-  // seedDBForce: true,
-  // db: process.env.DB_TYPE, // mongo,sql if you want to use any SQL change dialect above in sql config
-  // cipher: 'bcrypt', // bcrypt,md5 passport password encrpt and decrype algorithm
-  // sessionSecret: process.env.SESSION_SECRET,
+  secret: process.env.SECRET,
 };
