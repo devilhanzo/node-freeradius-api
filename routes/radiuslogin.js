@@ -50,4 +50,19 @@ router.post('/', (req, res, next) => {
     }
 });
 
+router.post('/token', (req, res, next) => {
+    const token = req.query.token || req.body.token;
+    jwt.verify(token)
+    .then(decoded => res.send({
+        ok: true,
+        decoded,
+        // decoded: { uid: decoded.uid,
+        // username: decoded.username },
+    }), err => res.send({
+        ok: false,
+        error: 'No token provided',
+        code: 403,
+      }));
+});
+
 module.exports = router;
