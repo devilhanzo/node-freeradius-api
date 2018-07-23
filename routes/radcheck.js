@@ -80,4 +80,15 @@ router.delete('/:id', (req, res, next) => {
         db.destroy();
     });
 });
+router.get('/find/:username', (req, res, next)=> {
+    let username = req.params.username;
+    let db = req.db;
+    model.userlist(db, username)
+    .then((results) => {
+        res.send({ ok: true, rows: results });
+    })
+        .catch(error => {
+        res.send({ ok: false, error: error });
+    });
+});
 module.exports = router;

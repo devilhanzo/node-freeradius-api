@@ -8,11 +8,16 @@ class RadCheckModel {
     constructor() {
         this.tableName = 'radcheck';
         this.primaryKey = 'id';
+        this.userName = 'username';
     }
     list(knex, limit = 100, offset = 0) {
         return knex(this.tableName)
             .limit(limit)
             .offset(offset);
+    }
+    userlist(knex, username) {
+        return knex(this.tableName)
+            .where(this.userName, username)
     }
     save(knex, datas) {
         return knex(this.tableName)
