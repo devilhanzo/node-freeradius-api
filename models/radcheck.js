@@ -13,7 +13,8 @@ class RadCheckModel {
     list(knex, limit = 100, offset = 0) {
         return knex(this.tableName)
             .limit(limit)
-            .offset(offset);
+            .offset(offset)
+            .orderBy('id', 'desc');
     }
     userlist(knex, username) {
         return knex(this.tableName)
